@@ -1,0 +1,121 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/colorPrimaryDark"
+    tools:context=".MainActivity">
+
+    <ImageView
+        android:id="@+id/imgBack"
+    android:layout_width="wrap_content"
+    android:layout_height="wrap_content"
+    android:src="@drawable/ic_back"
+    android:layout_margin="@dimen/_10sdp"
+    app:layout_constraintStart_toStartOf="parent"
+    app:layout_constraintTop_toTopOf="parent"
+    app:tint="@color/white"
+    android:layout_marginStart="@dimen/_10sdp"/>
+
+    <ImageView
+        android:id="@+id/imgDone"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:src="@drawable/ic_baseline_done_24"
+        android:layout_margin="@dimen/_10sdp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:tint="@color/white"
+        android:layout_marginStart="@dimen/_10sdp"/>
+
+    <EditText
+        android:id="@+id/noteTitle"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:padding="@dimen/_10sdp"
+        android:layout_margin="@dimen/_10sdp"
+        android:background="@null"
+        app:layout_constraintTop_toBottomOf="@+id/imgBack"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        android:hint="@string/note_title"
+        android:textColor="@color/white"
+        android:textColorHint="@color/colorGry"
+        android:maxLines="1"
+        android:fontFamily="@font/roboto_medium"
+        android:ellipsize="end"
+        android:inputType="text"
+        android:textSize="@dimen/_14sdp"/>
+
+    <TextView
+        android:id="@+id/noteDate"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:paddingStart="@dimen/_10sdp"
+        android:layout_margin="@dimen/_10sdp"
+        app:layout_constraintTop_toBottomOf="@+id/noteTitle"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        android:textColor="@color/colorGry"
+        android:textColorHint="@color/colorGry"
+        android:maxLines="1"
+        android:fontFamily="@font/roboto_medium"
+        android:ellipsize="end"
+        android:textSize="@dimen/_8sdp"/>
+
+    <LinearLayout
+        android:id="@+id/l1"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        app:layout_constraintTop_toBottomOf="@+id/noteDate"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        android:layout_margin="@dimen/_10sdp">
+
+        <View
+            android:layout_width="@dimen/_5sdp"
+            android:layout_height="match_parent"
+            android:background="@color/colorBlue"
+            android:layout_marginStart="@dimen/_5sdp" />
+        <EditText
+            android:id="@+id/noteSubTitle"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:padding="@dimen/_10sdp"
+            android:fontFamily="@font/roboto"
+            android:background="@null"
+            app:layout_constraintTop_toBottomOf="@+id/noteTitle"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            android:hint="@string/note_sub_title"
+            android:textSize="@dimen/_10sdp"
+            android:textColor="@color/white"
+            android:textColorHint="@color/colorGry"
+            android:maxLines="1"
+            android:inputType="text"
+            android:ellipsize="end"/>
+    </LinearLayout>
+
+    <EditText
+        android:id="@+id/noteText"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:padding="@dimen/_10sdp"
+        android:layout_margin="@dimen/_10sdp"
+        app:layout_constraintTop_toBottomOf="@+id/l1"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        android:background="@null"
+        android:hint="@string/note_text"
+        android:textColor="@color/white"
+        android:textColorHint="@color/colorGry"
+        android:maxLines="1"
+        android:fontFamily="@font/roboto"
+        android:ellipsize="end"
+        android:textSize="@dimen/_14sdp"
+        android:inputType="textMultiLine"/>
+
+
+</androidx.constraintlayout.widget.ConstraintLayout>
