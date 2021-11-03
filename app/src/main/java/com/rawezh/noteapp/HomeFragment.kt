@@ -53,7 +53,7 @@ class HomeFragment : BaseFragment() {
 
         launch {
             context?.let {
-                var notes = NoteDatabase.getDatabase(it).noteDao().getallNotes()
+                var notes = NoteDatabase.getDatabase(it).noteDao().getAllNotes()
                 recycler_view.adapter = NoteAdapter(notes)
             }
         }

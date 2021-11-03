@@ -6,13 +6,13 @@ import com.rawezh.noteapp.entities.Notes
 @Dao
 interface NoteDao {
 
-    @Query("SELECT * FROM Notes ORDER BY id DESC")
-    suspend fun getallNotes(): List<Notes>
+    @Query("SELECT * FROM notes ORDER BY id DESC")
+    suspend fun getAllNotes() : List<Notes>
 
 
     @Insert(onConflict = OnConflictStrategy.REPLACE)
-    suspend fun insertNotes(notes: Notes)
+    suspend fun insertNotes(note:Notes)
 
     @Delete
-    suspend fun deleteNotes(notes: Notes)
+    suspend fun deleteNote(note:Notes)
 }
