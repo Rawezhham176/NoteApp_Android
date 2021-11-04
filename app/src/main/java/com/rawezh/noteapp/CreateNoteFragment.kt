@@ -121,7 +121,7 @@ class CreateNoteFragment : BaseFragment() {
 
     private val BroadcastReceiver: BroadcastReceiver = object : BroadcastReceiver() {
         override fun onReceive(p0: Context?, p1: Intent?) {
-            var actionColor = p1!!.getStringExtra("actionColor")
+            var actionColor = p1!!.getStringExtra("action")
 
             when(actionColor!!) {
                 "Blue" -> {

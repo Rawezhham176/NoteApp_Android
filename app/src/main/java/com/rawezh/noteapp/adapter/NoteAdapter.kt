@@ -9,7 +9,7 @@ import com.rawezh.noteapp.R
 import com.rawezh.noteapp.entities.Notes
 import kotlinx.android.synthetic.main.item_rv_notes.view.*
 
-class NoteAdapter(val arrayList: List<Notes>) :
+class NoteAdapter(private val arrayList: List<Notes>) :
     RecyclerView.Adapter<NoteAdapter.NotesViewHolder>() {
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): NotesViewHolder {
         return NotesViewHolder(
@@ -23,9 +23,9 @@ class NoteAdapter(val arrayList: List<Notes>) :
         holder.itemView.tvDateTime.text = arrayList[position].dateTime
 
         if(arrayList[position].color != null){
-            holder.itemView.cardsView.setCardBackgroundColor((Color.parseColor(arrayList[position].color)))
+            holder.itemView.cardView.setCardBackgroundColor(Color.parseColor(arrayList[position].color))
         } else {
-            holder.itemView.cardsView.setCardBackgroundColor(Color.parseColor(R.color.colorBlackLight.toString()))
+            holder.itemView.cardView.setCardBackgroundColor(Color.parseColor("#171c26"))
         }
     }
 
