@@ -17,4 +17,13 @@
     <color name="colorBlackDark">#10141c</color>
     <color name="colorYellow">#ffd633</color>
     <color name="colorBlue">#4e33ff</color>
+    
+    <color name="colorDefaultNote">#606570</color>
+    <color name="colorBlueNote">#4e33ff</color>
+    <color name="colorYellowNote">#ffd633</color>
+    <color name="colorWhiteNote">#ffffff</color>
+    <color name="colorPurpleNote">#ae3b76</color>
+    <color name="colorGreenNote">#0aebaf</color>
+    <color name="colorOrangeNote">#ff7746</color>
+    <color name="colorBlackNote">#202734</color>
 </resources>

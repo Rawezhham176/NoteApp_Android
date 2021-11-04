@@ -6,6 +6,7 @@
     android:layout_height="wrap_content">
     
     <androidx.cardview.widget.CardView
+        android:id="@+id/cardsView"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         app:cardCornerRadius="@dimen/_10sdp"
@@ -56,7 +57,7 @@
                 android:fontFamily="@font/roboto"
                 android:text="@string/notes"
                 android:paddingStart="@dimen/_10sdp"
-                android:paddingTop="@dimen/_5sdp"
+                android:paddingTop="@dimen/_2sdp"
                 android:paddingBottom="@dimen/_5sdp"
                 app:layout_constraintTop_toTopOf="parent"
                 app:layout_constraintStart_toStartOf="parent"

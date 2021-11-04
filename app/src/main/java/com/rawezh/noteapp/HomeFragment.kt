@@ -19,6 +19,7 @@ import kotlin.collections.ArrayList
 
 class HomeFragment : BaseFragment() {
 
+    var selectedColor = "#4e33ff"
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         arguments?.let {
@@ -49,6 +50,7 @@ class HomeFragment : BaseFragment() {
         super.onViewCreated(view, savedInstanceState)
 
         recycler_view.setHasFixedSize(true)
+
         recycler_view.layoutManager = StaggeredGridLayoutManager(2, StaggeredGridLayoutManager.VERTICAL)
 
         launch {
