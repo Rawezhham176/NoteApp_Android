@@ -11,82 +11,85 @@
         android:id="@+id/tv1"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:fontFamily="@font/roboto_medium"
+        android:textSize="@dimen/_15ssp"
         android:text="@string/notes"
         android:paddingStart="@dimen/_10sdp"
         android:paddingTop="@dimen/_10sdp"
         app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        android:textColor="@color/white"
-        android:textSize="@dimen/_15sdp" />
+        android:fontFamily="@font/roboto_medium"
+        android:textColor="@color/colorWhite"/>
 
     <SearchView
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:id="@+id/search_view"
-        android:queryHint="@string/search"
+        android:layout_margin="@dimen/_10sdp"
         android:searchIcon="@drawable/ic_search"
+        android:background="@drawable/background"
+        android:queryHint="@string/search"
         android:theme="@style/ThemeOverlay.search"
         android:iconifiedByDefault="false"
-        android:background="@drawable/background"
         app:layout_constraintTop_toBottomOf="@id/tv1"
         app:layout_constraintStart_toStartOf="parent"
-        android:layout_margin="@dimen/_10sdp" />
+        app:layout_constraintEnd_toEndOf="parent"
+        android:id="@+id/search_view"/>
 
     <androidx.recyclerview.widget.RecyclerView
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:id="@+id/recycler_view"
         android:layout_margin="@dimen/_10sdp"
-        app:layout_constraintTop_toBottomOf="@+id/search_view"
-        app:layout_constraintStart_toStartOf="parent" />
+        app:layout_constraintTop_toBottomOf="@id/search_view"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        android:id="@+id/recycler_view"/>
 
     <LinearLayout
         android:id="@+id/l1"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:background="@color/colorPrimary"
-        android:orientation="horizontal"
         app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        android:padding="@dimen/_10sdp">
+        app:layout_constraintEnd_toEndOf="parent"
+        android:background="@color/colorPrimary"
+        android:padding="@dimen/_10sdp"
+        android:visibility="invisible"
+        android:orientation="horizontal">
 
         <ImageView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:src="@drawable/ic_baseline_done_24"
-            app:tint="@color/white"
-            android:layout_marginStart="@dimen/_10sdp"/>
+            android:src="@drawable/ic_check"
+            app:tint="@color/colorWhite" />
 
         <ImageView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:src="@drawable/ic_baseline_image_24"
             android:layout_marginStart="@dimen/_10sdp"
-            app:tint="@color/white" />
+            android:layout_marginEnd="@dimen/_10sdp"
+            app:tint="@color/colorWhite" />
 
         <ImageView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:src="@drawable/ic_baseline_insert_link_24"
-            android:layout_marginStart="@dimen/_10sdp"
-            app:tint="@color/white" />
+            app:tint="@color/colorWhite" />
+
 
     </LinearLayout>
 
     <com.google.android.material.floatingactionbutton.FloatingActionButton
-        android:id="@+id/fabBtnCreateNote"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:src="@drawable/ic_baseline_add_24"
-        android:background="@color/colorYellow"
-        android:tint="@color/white"
+        android:background="@color/colorAccent"
+        android:id="@+id/fabBtnCreateNote"
+        android:tint="@color/colorWhite"
         android:layout_marginEnd="@dimen/_20sdp"
         android:layout_marginBottom="@dimen/_20sdp"
         app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent" />
+        app:layout_constraintEnd_toEndOf="parent"
+        android:src="@drawable/ic_baseline_add_24"/>
 
 
 </androidx.constraintlayout.widget.ConstraintLayout>

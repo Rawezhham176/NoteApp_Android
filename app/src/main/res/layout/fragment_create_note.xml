@@ -11,26 +11,29 @@
         android:id="@+id/imgBack"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_margin="@dimen/_10sdp"
         android:layout_marginStart="@dimen/_10sdp"
+        android:layout_marginTop="@dimen/_20sdp"
+        android:layout_marginBottom="@dimen/_10sdp"
         android:src="@drawable/ic_back"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:tint="@color/white" />
+        app:tint="@color/colorWhite" />
 
     <ImageView
         android:id="@+id/imgDone"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_margin="@dimen/_10sdp"
-        android:layout_marginStart="@dimen/_10sdp"
-        android:src="@drawable/ic_baseline_done_24"
+        android:layout_marginTop="@dimen/_20sdp"
+        android:layout_marginEnd="@dimen/_10sdp"
+        android:layout_marginBottom="@dimen/_10sdp"
+        android:src="@drawable/ic_check"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:tint="@color/white" />
+        app:tint="@color/colorWhite" />
+
 
     <EditText
-        android:id="@+id/noteTitle"
+        android:id="@+id/etNoteTitle"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_margin="@dimen/_10sdp"
@@ -41,28 +44,32 @@
         android:inputType="text"
         android:maxLines="1"
         android:padding="@dimen/_10sdp"
-        android:textColor="@color/white"
+        android:textColor="@color/colorWhite"
         android:textColorHint="@color/colorGry"
-        android:textSize="@dimen/_14sdp"
+        android:textSize="@dimen/_14ssp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/imgBack" />
+        app:layout_constraintTop_toBottomOf="@id/imgBack" />
+
 
     <TextView
-        android:id="@+id/noteDate"
+        android:id="@+id/tvDateTime"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_margin="@dimen/_10sdp"
+        android:layout_marginStart="@dimen/_10sdp"
+        android:layout_marginTop="@dimen/_5sdp"
+        android:layout_marginEnd="@dimen/_10sdp"
+        android:layout_marginBottom="@dimen/_5sdp"
         android:ellipsize="end"
         android:fontFamily="@font/roboto_medium"
         android:maxLines="1"
         android:paddingStart="@dimen/_10sdp"
         android:textColor="@color/colorGry"
         android:textColorHint="@color/colorGry"
-        android:textSize="@dimen/_8sdp"
+        android:textSize="@dimen/_8ssp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/noteTitle" />
+        app:layout_constraintTop_toBottomOf="@id/etNoteTitle" />
 
     <LinearLayout
         android:id="@+id/l1"
@@ -72,7 +79,8 @@
         android:orientation="horizontal"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/noteDate">
+        app:layout_constraintTop_toBottomOf="@id/tvDateTime">
+
 
         <View
             android:id="@+id/colorView"
@@ -82,131 +90,167 @@
             android:background="@color/colorBlue" />
 
         <EditText
-            android:id="@+id/noteSubTitle"
+            android:id="@+id/etNoteSubTitle"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:background="@null"
             android:ellipsize="end"
-            android:fontFamily="@font/roboto"
+            android:fontFamily="@font/roboto_medium"
             android:hint="@string/note_sub_title"
             android:inputType="text"
             android:maxLines="1"
             android:padding="@dimen/_10sdp"
-            android:textColor="@color/white"
+            android:textColor="@color/colorWhite"
             android:textColorHint="@color/colorGry"
-            android:textSize="@dimen/_10sdp"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/noteTitle" />
+            android:textSize="@dimen/_10ssp" />
     </LinearLayout>
 
-    <LinearLayout
-        android:id="@+id/lWeblink"
+    <RelativeLayout
+        android:id="@+id/layoutImage"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
+        android:visibility="gone"
+        app:layout_constraintTop_toBottomOf="@id/l1">
+
+
+
+        <ImageView
+            android:id="@+id/imgNote"
+            android:layout_width="match_parent"
+            android:layout_height="@dimen/_300sdp"
+            android:visibility="gone"
+            android:layout_marginStart="@dimen/_10sdp"
+            android:layout_marginTop="@dimen/_10sdp"
+            android:layout_marginEnd="@dimen/_10sdp" />
+
+        <ImageView
+            android:id="@+id/imgDelete"
+            android:layout_width="@dimen/_24sdp"
+            android:layout_height="@dimen/_24sdp"
+            android:layout_marginEnd="@dimen/_15sdp"
+            android:layout_marginTop="@dimen/_20sdp"
+            android:layout_alignParentEnd="true"
+            android:visibility="gone"
+            android:layout_alignParentTop="true"
+            android:src="@drawable/ic_delete" />
+
+
+    </RelativeLayout>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:id="@+id/layoutWebUrl"
         android:background="@color/colorPrimary"
         app:layout_constraintEnd_toEndOf="parent"
-        android:layout_margin="@dimen/_10sdp"
         android:padding="@dimen/_10sdp"
         android:visibility="gone"
+        android:layout_margin="@dimen/_10sdp"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/l1"
+        app:layout_constraintTop_toBottomOf="@id/layoutImage"
         android:orientation="vertical">
 
-
-        <EditText
-            android:id="@+id/Note_Text_Web"
+        <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:background="@null"
-            android:layout_margin="@dimen/_10sdp"
-            android:hint="@string/note_Web_link"
-            android:fontFamily="@font/roboto"
-            android:inputType="text"
-            android:padding="@dimen/_10sdp"
-            android:textColor="@color/white"
-            android:textColorHint="@color/colorGry"
-            android:textSize="@dimen/_11sdp"
-            />
+            android:gravity="center"
+            android:orientation="horizontal">
+            <EditText
+                android:id="@+id/etWebLink"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:background="@null"
+                android:fontFamily="@font/roboto_medium"
+                android:hint="@string/note_Web_link"
+                android:inputType="textMultiLine"
+                android:padding="@dimen/_10sdp"
+                android:text="http://"
+                android:textColor="@color/colorWhite"
+                android:textColorHint="@color/colorGry"
+                android:textSize="@dimen/_12ssp" />
+            <ImageView
+                android:id="@+id/imgUrlDelete"
+                android:layout_width="@dimen/_24sdp"
+                android:layout_height="@dimen/_24sdp"
+                android:visibility="gone"
+                android:src="@drawable/ic_baseline_cancel_24" />
+        </LinearLayout>
+
+
 
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_gravity="end"
+            android:layout_marginTop="@dimen/_10sdp"
             android:gravity="end"
-            android:layout_marginStart="@dimen/_10sdp"
-            android:layout_marginEnd="@dimen/_10sdp"
-            android:orientation="horizontal" >
-        <Button
-            android:layout_width="@dimen/_70sdp"
-            android:layout_height="@dimen/_30sdp"
-            android:background="@color/colorText"
-            android:text="@string/btn_ok"
-            android:fontFamily="@font/roboto_medium"
-            android:textSize="@dimen/_12sdp"
-            android:textAllCaps="false"
-            android:layout_marginEnd="@dimen/_20sdp"
-            android:textColor="@color/white"
-            android:id="@+id/btn_ok" />
+            android:orientation="horizontal">
 
-        <Button
-            android:layout_width="@dimen/_70sdp"
-            android:layout_height="@dimen/_30sdp"
-            android:background="@color/colorText"
-            android:text="@string/btn_cancle"
-            android:fontFamily="@font/roboto_medium"
-            android:textSize="@dimen/_12sdp"
-            android:textAllCaps="false"
-            android:textColor="@color/white"
-            android:id="@+id/btn_cancle" />
+
+            <Button
+                android:layout_width="wrap_content"
+                android:layout_height="@dimen/_30sdp"
+                android:fontFamily="@font/roboto_medium"
+                android:background="@color/colorAccent"
+                android:text="@string/btn_cancle"
+                android:textSize="@dimen/_12ssp"
+                android:textAllCaps="false"
+                android:textColor="@color/colorWhite"
+                android:id="@+id/btnCancel"/>
+
+            <Button
+                android:layout_width="wrap_content"
+                android:layout_height="@dimen/_30sdp"
+                android:fontFamily="@font/roboto_medium"
+                android:background="@color/colorAccent"
+                android:text="@string/btn_ok"
+                android:textAllCaps="false"
+                android:textSize="@dimen/_12ssp"
+                android:layout_marginStart="@dimen/_5sdp"
+                android:textColor="@color/colorWhite"
+                android:id="@+id/btnOk"/>
+
+
         </LinearLayout>
-
     </LinearLayout>
 
     <TextView
-        android:id="@+id/Link_Visible_Note"
+        android:id="@+id/tvWebLink"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="@dimen/_10sdp"
+        android:layout_marginTop="@dimen/_5sdp"
+        android:layout_marginEnd="@dimen/_10sdp"
+        android:layout_marginBottom="@dimen/_5sdp"
+        android:ellipsize="end"
+        android:visibility="gone"
+        android:fontFamily="@font/roboto_medium"
+        android:padding="@dimen/_10sdp"
+        android:textColor="@color/colorGry"
+        android:textColorHint="@color/colorGry"
+        android:textSize="@dimen/_12ssp"
+        android:autoLink="web"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/layoutWebUrl" />
+
+    <EditText
+        android:id="@+id/etNoteDesc"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_margin="@dimen/_10sdp"
-        android:ellipsize="end"
-        android:fontFamily="@font/roboto_medium"
-        android:maxLines="1"
-        android:text="http://"
-        android:padding="@dimen/_6sdp"
-        android:textColor="@color/colorAccent"
-        android:textColorHint="@color/colorGry"
-        android:textSize="@dimen/_13sdp"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/lWeblink" />
-
-    <ImageView
-        android:id="@+id/imageNote"
-        android:layout_width="match_parent"
-        android:layout_height="@dimen/_150sdp"
-        android:visibility="gone"
-        app:layout_constraintBottom_toBottomOf="@id/l1"
-        app:layout_constraintTop_toTopOf="@id/noteText" />
-
-
-    <EditText
-        android:id="@+id/noteText"
-        android:layout_width="match_parent"
-        android:layout_height="@dimen/_200sdp"
-        android:layout_margin="@dimen/_10sdp"
         android:background="@null"
-        android:ellipsize="end"
         android:fontFamily="@font/roboto"
         android:hint="@string/note_text"
         android:inputType="textMultiLine"
-        android:maxLines="15"
         android:padding="@dimen/_10sdp"
-        android:textColor="@color/white"
+        android:textColor="@color/colorWhite"
         android:textColorHint="@color/colorGry"
-        android:textSize="@dimen/_14sdp"
+        android:textSize="@dimen/_12ssp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/Link_Visible_Note" />
+        app:layout_constraintTop_toBottomOf="@id/tvWebLink" />
 
     <FrameLayout
         android:layout_width="match_parent"
@@ -221,7 +265,8 @@
             android:layout_height="@dimen/_24sdp"
             android:layout_gravity="center"
             android:src="@drawable/ic_more"
-            app:tint="@color/colorWhite" />
+            app:tint="@color/colorWhite"
+            />
     </FrameLayout>
 
 

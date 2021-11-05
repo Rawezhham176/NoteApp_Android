@@ -1,6 +1,5 @@
 package com.rawezh.noteapp
 
-
 import android.os.Bundle
 import androidx.fragment.app.Fragment
 import kotlinx.coroutines.CoroutineScope

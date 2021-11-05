@@ -1,6 +1,5 @@
 package com.rawezh.noteapp.util
 
-import android.annotation.SuppressLint
 import android.app.Dialog
 import android.content.Intent
 import android.os.Bundle
@@ -9,63 +8,66 @@ import android.view.View
 import android.view.ViewGroup
 import androidx.coordinatorlayout.widget.CoordinatorLayout
 import androidx.localbroadcastmanager.content.LocalBroadcastManager
+import com.rawezh.noteapp.R
 import com.google.android.material.bottomsheet.BottomSheetBehavior
 import com.google.android.material.bottomsheet.BottomSheetDialogFragment
-import com.rawezh.noteapp.R
 import kotlinx.android.synthetic.main.fragment_notes_buttom_sheet.*
 
-class NoteBottomSheetFragment: BottomSheetDialogFragment() {
+class NoteBottomSheetFragment : BottomSheetDialogFragment() {
+    var selectedColor = "#171C26"
 
-    var selectedColor = "#4e33ff"
 
     companion object {
-        fun newInstance(): NoteBottomSheetFragment {
+        var noteId = -1
+        fun newInstance(id:Int): NoteBottomSheetFragment{
             val args = Bundle()
             val fragment = NoteBottomSheetFragment()
             fragment.arguments = args
+            noteId = id
             return fragment
         }
     }
-    @SuppressLint("RestrictedApi")
     override fun setupDialog(dialog: Dialog, style: Int) {
         super.setupDialog(dialog, style)
 
-        val view = LayoutInflater.from(context).inflate(R.layout.fragment_notes_buttom_sheet, null)
+        val view = LayoutInflater.from(context).inflate(R.layout.fragment_notes_buttom_sheet,null)
         dialog.setContentView(view)
 
         val param = (view.parent as View).layoutParams as CoordinatorLayout.LayoutParams
 
         val behavior = param.behavior
 
-        if(behavior is BottomSheetBehavior) {
-            behavior.setBottomSheetCallback(object : BottomSheetBehavior.BottomSheetCallback() {
+        if (behavior is BottomSheetBehavior<*>){
+            behavior.setBottomSheetCallback(object  : BottomSheetBehavior.BottomSheetCallback(){
                 override fun onSlide(bottomSheet: View, slideOffset: Float) {
-
+                    TODO("Not yet implemented")
                 }
 
                 override fun onStateChanged(bottomSheet: View, newState: Int) {
                     var state = ""
-
-                    when(newState) {
+                    when (newState) {
                         BottomSheetBehavior.STATE_DRAGGING -> {
                             state = "DRAGGING"
                         }
                         BottomSheetBehavior.STATE_SETTLING -> {
                             state = "SETTLING"
                         }
-                        BottomSheetBehavior.STATE_COLLAPSED -> {
-                            state = "COLLAPSED"
-                        }
                         BottomSheetBehavior.STATE_EXPANDED -> {
                             state = "EXPANDED"
                         }
+                        BottomSheetBehavior.STATE_COLLAPSED -> {
+                            state = "COLLAPSED"
+                        }
+
                         BottomSheetBehavior.STATE_HIDDEN -> {
                             state = "HIDDEN"
                             dismiss()
                             behavior.state = BottomSheetBehavior.STATE_COLLAPSED
                         }
+
                     }
                 }
+
             })
 
 
@@ -77,128 +79,138 @@ class NoteBottomSheetFragment: BottomSheetDialogFragment() {
         container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View? {
-        return inflater.inflate(R.layout.fragment_notes_buttom_sheet, container, false)
+        return inflater.inflate(R.layout.fragment_notes_buttom_sheet,container,false)
+
     }
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
+        if (noteId != -1){
+            layoutDeleteNote.visibility = View.VISIBLE
+        }else{
+            layoutDeleteNote.visibility = View.GONE
+        }
         setListener()
     }
 
     private fun setListener(){
         fNote1.setOnClickListener {
+
             imgNote1.setImageResource(R.drawable.ic_check)
             imgNote2.setImageResource(0)
-            imgNote3.setImageResource(0)
             imgNote4.setImageResource(0)
             imgNote5.setImageResource(0)
             imgNote6.setImageResource(0)
             imgNote7.setImageResource(0)
             selectedColor = "#4e33ff"
+
             val intent = Intent("bottom_sheet_action")
-            intent.putExtra("action", "Blue")
-            intent.putExtra("selectedColor", selectedColor)
+            intent.putExtra("action","Blue")
+            intent.putExtra("selectedColor",selectedColor)
             LocalBroadcastManager.getInstance(requireContext()).sendBroadcast(intent)
+
         }
+
         fNote2.setOnClickListener {
             imgNote1.setImageResource(0)
             imgNote2.setImageResource(R.drawable.ic_check)
-            imgNote3.setImageResource(0)
-            imgNote4.setImageResource(0)
-            imgNote5.setImageResource(0)
-            imgNote6.setImageResource(0)
-            imgNote7.setImageResource(0)
-            selectedColor = "#202734"
-            val intent = Intent("bottom_sheet_action")
-            intent.putExtra("action", "Black")
-            intent.putExtra("selectedColor", selectedColor)
-            LocalBroadcastManager.getInstance(requireContext()).sendBroadcast(intent)
-        }
-        fNote3.setOnClickListener {
-            imgNote1.setImageResource(0)
-            imgNote2.setImageResource(0)
-            imgNote3.setImageResource(R.drawable.ic_check)
             imgNote4.setImageResource(0)
             imgNote5.setImageResource(0)
             imgNote6.setImageResource(0)
             imgNote7.setImageResource(0)
             selectedColor = "#ffd633"
+
             val intent = Intent("bottom_sheet_action")
-            intent.putExtra("action", "Yellow")
-            intent.putExtra("selectedColor", selectedColor)
+            intent.putExtra("action","Yellow")
+            intent.putExtra("selectedColor",selectedColor)
             LocalBroadcastManager.getInstance(requireContext()).sendBroadcast(intent)
+
         }
+
         fNote4.setOnClickListener {
             imgNote1.setImageResource(0)
             imgNote2.setImageResource(0)
-            imgNote3.setImageResource(0)
             imgNote4.setImageResource(R.drawable.ic_check)
             imgNote5.setImageResource(0)
             imgNote6.setImageResource(0)
             imgNote7.setImageResource(0)
-            selectedColor = "#ffffff"
+            selectedColor = "#ae3b76"
+
             val intent = Intent("bottom_sheet_action")
-            intent.putExtra("action", "White")
-            intent.putExtra("selectedColor", selectedColor)
+            intent.putExtra("action","Purple")
+            intent.putExtra("selectedColor",selectedColor)
             LocalBroadcastManager.getInstance(requireContext()).sendBroadcast(intent)
 
         }
+
         fNote5.setOnClickListener {
             imgNote1.setImageResource(0)
             imgNote2.setImageResource(0)
-            imgNote3.setImageResource(0)
             imgNote4.setImageResource(0)
             imgNote5.setImageResource(R.drawable.ic_check)
             imgNote6.setImageResource(0)
             imgNote7.setImageResource(0)
-            selectedColor = "#ff7746"
-            val intent = Intent("bottom_sheet_action")
-            intent.putExtra("action", "Orange")
-            intent.putExtra("selectedColor", selectedColor)
-            LocalBroadcastManager.getInstance(requireContext()).sendBroadcast(intent)
+            selectedColor = "#0aebaf"
 
+            val intent = Intent("bottom_sheet_action")
+            intent.putExtra("action","Green")
+            intent.putExtra("selectedColor",selectedColor)
+            LocalBroadcastManager.getInstance(requireContext()).sendBroadcast(intent)
         }
+
         fNote6.setOnClickListener {
+
             imgNote1.setImageResource(0)
             imgNote2.setImageResource(0)
-            imgNote3.setImageResource(0)
             imgNote4.setImageResource(0)
             imgNote5.setImageResource(0)
             imgNote6.setImageResource(R.drawable.ic_check)
             imgNote7.setImageResource(0)
-            selectedColor = "#0aebaf"
+            selectedColor = "#ff7746"
             val intent = Intent("bottom_sheet_action")
-            intent.putExtra("action", "Green")
-            intent.putExtra("selectedColor", selectedColor)
+            intent.putExtra("action","Orange")
+            intent.putExtra("selectedColor",selectedColor)
             LocalBroadcastManager.getInstance(requireContext()).sendBroadcast(intent)
-
         }
+
         fNote7.setOnClickListener {
             imgNote1.setImageResource(0)
             imgNote2.setImageResource(0)
-            imgNote3.setImageResource(0)
             imgNote4.setImageResource(0)
             imgNote5.setImageResource(0)
             imgNote6.setImageResource(0)
             imgNote7.setImageResource(R.drawable.ic_check)
-            selectedColor = "#ae3b76"
-            val intent = Intent("bottom_sheet_action")
-            intent.putExtra("action", "Purple")
-            intent.putExtra("selectedColor", selectedColor)
-            LocalBroadcastManager.getInstance(requireContext()).sendBroadcast(intent)
+            selectedColor = "#202734"
 
-        }
-
-        layoutHeader.setOnClickListener{
             val intent = Intent("bottom_sheet_action")
-            intent.putExtra("action", "Image")
+            intent.putExtra("action","Black")
+            intent.putExtra("selectedColor",selectedColor)
             LocalBroadcastManager.getInstance(requireContext()).sendBroadcast(intent)
         }
 
-        layoutWebLink.setOnClickListener{
+        layoutImage.setOnClickListener{
             val intent = Intent("bottom_sheet_action")
-            intent.putExtra("action", "Weblink")
+            intent.putExtra("action","Image")
             LocalBroadcastManager.getInstance(requireContext()).sendBroadcast(intent)
+            dismiss()
         }
+        layoutWebUrl.setOnClickListener{
+            val intent = Intent("bottom_sheet_action")
+            intent.putExtra("action","WebUrl")
+            LocalBroadcastManager.getInstance(requireContext()).sendBroadcast(intent)
+            dismiss()
+        }
+        layoutDeleteNote.setOnClickListener {
+            val intent = Intent("bottom_sheet_action")
+            intent.putExtra("action","DeleteNote")
+            LocalBroadcastManager.getInstance(requireContext()).sendBroadcast(intent)
+            dismiss()
+        }
+
+
+
+
     }
+
+
 }
