@@ -4,7 +4,11 @@
     <string name="search">Search...</string>
     <string name="note_title">Note Title</string>
     <string name="note_sub_title">Note Sub Title</string>
+    <string name="note_Web_link">Link</string>
+    <string name="btn_ok">Ok</string>
+    <string name="btn_cancle">Cancle</string>
     <string name="note_text">Note text</string>
     <!-- TODO: Remove or change this placeholder text -->
     <string name="hello_blank_fragment">Hello blank fragment</string>
+    <string name="storage_permission_text">This app needs access to your Storage!</string>
 </resources>

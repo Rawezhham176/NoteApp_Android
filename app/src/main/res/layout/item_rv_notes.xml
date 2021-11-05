@@ -21,6 +21,15 @@
             android:layout_height="wrap_content"
             android:orientation="vertical">
 
+            <com.makeramen.roundedimageview.RoundedImageView
+                android:id="@+id/imgNote"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:visibility="gone"
+                android:adjustViewBounds="true"
+                app:riv_corner_radius_top_left="@dimen/_10sdp"
+                app:riv_corner_radius_top_right="@dimen/_10sdp" />
+
             <TextView
                 android:id="@+id/tvTitle"
                 android:layout_width="match_parent"
@@ -49,6 +58,23 @@
                 app:layout_constraintEnd_toEndOf="parent"
                 android:textColor="@color/colorText"
                 android:textSize="@dimen/_11sdp" />
+
+            <TextView
+                android:id="@+id/Link_Visible_Note1"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_margin="@dimen/_10sdp"
+                android:ellipsize="end"
+                android:fontFamily="@font/roboto_medium"
+                android:maxLines="1"
+                android:visibility="visible"
+                android:padding="@dimen/_6sdp"
+                android:textColor="@color/colorAccent"
+                android:textColorHint="@color/colorGry"
+                android:textSize="@dimen/_8sdp"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/lWeblink" />
 
             <TextView
                 android:id="@+id/tvDateTime"

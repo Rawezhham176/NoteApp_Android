@@ -1,5 +1,6 @@
 package com.rawezh.noteapp.util
 
+import android.annotation.SuppressLint
 import android.app.Dialog
 import android.content.Intent
 import android.os.Bundle
@@ -25,6 +26,7 @@ class NoteBottomSheetFragment: BottomSheetDialogFragment() {
             return fragment
         }
     }
+    @SuppressLint("RestrictedApi")
     override fun setupDialog(dialog: Dialog, style: Int) {
         super.setupDialog(dialog, style)
 
@@ -185,6 +187,18 @@ class NoteBottomSheetFragment: BottomSheetDialogFragment() {
             intent.putExtra("selectedColor", selectedColor)
             LocalBroadcastManager.getInstance(requireContext()).sendBroadcast(intent)
 
+        }
+
+        layoutHeader.setOnClickListener{
+            val intent = Intent("bottom_sheet_action")
+            intent.putExtra("action", "Image")
+            LocalBroadcastManager.getInstance(requireContext()).sendBroadcast(intent)
+        }
+
+        layoutWebLink.setOnClickListener{
+            val intent = Intent("bottom_sheet_action")
+            intent.putExtra("action", "Weblink")
+            LocalBroadcastManager.getInstance(requireContext()).sendBroadcast(intent)
         }
     }
 }

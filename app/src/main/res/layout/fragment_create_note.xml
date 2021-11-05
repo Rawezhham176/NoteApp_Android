@@ -9,121 +9,211 @@
 
     <ImageView
         android:id="@+id/imgBack"
-    android:layout_width="wrap_content"
-    android:layout_height="wrap_content"
-    android:src="@drawable/ic_back"
-    android:layout_margin="@dimen/_10sdp"
-    app:layout_constraintStart_toStartOf="parent"
-    app:layout_constraintTop_toTopOf="parent"
-    app:tint="@color/white"
-    android:layout_marginStart="@dimen/_10sdp"/>
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_margin="@dimen/_10sdp"
+        android:layout_marginStart="@dimen/_10sdp"
+        android:src="@drawable/ic_back"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:tint="@color/white" />
 
     <ImageView
         android:id="@+id/imgDone"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:src="@drawable/ic_baseline_done_24"
         android:layout_margin="@dimen/_10sdp"
+        android:layout_marginStart="@dimen/_10sdp"
+        android:src="@drawable/ic_baseline_done_24"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:tint="@color/white"
-        android:layout_marginStart="@dimen/_10sdp"/>
+        app:tint="@color/white" />
 
     <EditText
         android:id="@+id/noteTitle"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:padding="@dimen/_10sdp"
         android:layout_margin="@dimen/_10sdp"
         android:background="@null"
-        app:layout_constraintTop_toBottomOf="@+id/imgBack"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
+        android:ellipsize="end"
+        android:fontFamily="@font/roboto_medium"
         android:hint="@string/note_title"
+        android:inputType="text"
+        android:maxLines="1"
+        android:padding="@dimen/_10sdp"
         android:textColor="@color/white"
         android:textColorHint="@color/colorGry"
-        android:maxLines="1"
-        android:fontFamily="@font/roboto_medium"
-        android:ellipsize="end"
-        android:inputType="text"
-        android:textSize="@dimen/_14sdp"/>
+        android:textSize="@dimen/_14sdp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/imgBack" />
 
     <TextView
         android:id="@+id/noteDate"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:paddingStart="@dimen/_10sdp"
         android:layout_margin="@dimen/_10sdp"
-        app:layout_constraintTop_toBottomOf="@+id/noteTitle"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
+        android:ellipsize="end"
+        android:fontFamily="@font/roboto_medium"
+        android:maxLines="1"
+        android:paddingStart="@dimen/_10sdp"
         android:textColor="@color/colorGry"
         android:textColorHint="@color/colorGry"
-        android:maxLines="1"
-        android:fontFamily="@font/roboto_medium"
-        android:ellipsize="end"
-        android:textSize="@dimen/_8sdp"/>
+        android:textSize="@dimen/_8sdp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/noteTitle" />
 
     <LinearLayout
         android:id="@+id/l1"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
+        android:layout_margin="@dimen/_10sdp"
         android:orientation="horizontal"
-        app:layout_constraintTop_toBottomOf="@+id/noteDate"
-        app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        android:layout_margin="@dimen/_10sdp">
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/noteDate">
 
         <View
             android:id="@+id/colorView"
             android:layout_width="@dimen/_5sdp"
             android:layout_height="match_parent"
-            android:background="@color/colorBlue"
-            android:layout_marginStart="@dimen/_5sdp" />
+            android:layout_marginStart="@dimen/_5sdp"
+            android:background="@color/colorBlue" />
+
         <EditText
             android:id="@+id/noteSubTitle"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:padding="@dimen/_10sdp"
-            android:fontFamily="@font/roboto"
             android:background="@null"
-            app:layout_constraintTop_toBottomOf="@+id/noteTitle"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintEnd_toEndOf="parent"
+            android:ellipsize="end"
+            android:fontFamily="@font/roboto"
             android:hint="@string/note_sub_title"
-            android:textSize="@dimen/_10sdp"
+            android:inputType="text"
+            android:maxLines="1"
+            android:padding="@dimen/_10sdp"
             android:textColor="@color/white"
             android:textColorHint="@color/colorGry"
-            android:maxLines="1"
-            android:inputType="text"
-            android:ellipsize="end"/>
+            android:textSize="@dimen/_10sdp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/noteTitle" />
     </LinearLayout>
+
+    <LinearLayout
+        android:id="@+id/lWeblink"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="@color/colorPrimary"
+        app:layout_constraintEnd_toEndOf="parent"
+        android:layout_margin="@dimen/_10sdp"
+        android:padding="@dimen/_10sdp"
+        android:visibility="gone"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/l1"
+        android:orientation="vertical">
+
+
+        <EditText
+            android:id="@+id/Note_Text_Web"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:background="@null"
+            android:layout_margin="@dimen/_10sdp"
+            android:hint="@string/note_Web_link"
+            android:fontFamily="@font/roboto"
+            android:inputType="text"
+            android:padding="@dimen/_10sdp"
+            android:textColor="@color/white"
+            android:textColorHint="@color/colorGry"
+            android:textSize="@dimen/_11sdp"
+            />
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_gravity="end"
+            android:gravity="end"
+            android:layout_marginStart="@dimen/_10sdp"
+            android:layout_marginEnd="@dimen/_10sdp"
+            android:orientation="horizontal" >
+        <Button
+            android:layout_width="@dimen/_70sdp"
+            android:layout_height="@dimen/_30sdp"
+            android:background="@color/colorText"
+            android:text="@string/btn_ok"
+            android:fontFamily="@font/roboto_medium"
+            android:textSize="@dimen/_12sdp"
+            android:textAllCaps="false"
+            android:layout_marginEnd="@dimen/_20sdp"
+            android:textColor="@color/white"
+            android:id="@+id/btn_ok" />
+
+        <Button
+            android:layout_width="@dimen/_70sdp"
+            android:layout_height="@dimen/_30sdp"
+            android:background="@color/colorText"
+            android:text="@string/btn_cancle"
+            android:fontFamily="@font/roboto_medium"
+            android:textSize="@dimen/_12sdp"
+            android:textAllCaps="false"
+            android:textColor="@color/white"
+            android:id="@+id/btn_cancle" />
+        </LinearLayout>
+
+    </LinearLayout>
+
+    <TextView
+        android:id="@+id/Link_Visible_Note"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_margin="@dimen/_10sdp"
+        android:ellipsize="end"
+        android:fontFamily="@font/roboto_medium"
+        android:maxLines="1"
+        android:text="http://"
+        android:padding="@dimen/_6sdp"
+        android:textColor="@color/colorAccent"
+        android:textColorHint="@color/colorGry"
+        android:textSize="@dimen/_13sdp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/lWeblink" />
+
+    <ImageView
+        android:id="@+id/imageNote"
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/_150sdp"
+        android:visibility="gone"
+        app:layout_constraintBottom_toBottomOf="@id/l1"
+        app:layout_constraintTop_toTopOf="@id/noteText" />
+
 
     <EditText
         android:id="@+id/noteText"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:padding="@dimen/_10sdp"
+        android:layout_height="@dimen/_200sdp"
         android:layout_margin="@dimen/_10sdp"
-        app:layout_constraintTop_toBottomOf="@+id/l1"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
         android:background="@null"
+        android:ellipsize="end"
+        android:fontFamily="@font/roboto"
         android:hint="@string/note_text"
+        android:inputType="textMultiLine"
+        android:maxLines="15"
+        android:padding="@dimen/_10sdp"
         android:textColor="@color/white"
         android:textColorHint="@color/colorGry"
-        android:maxLines="1"
-        android:fontFamily="@font/roboto"
-        android:ellipsize="end"
         android:textSize="@dimen/_14sdp"
-        android:inputType="textMultiLine"/>
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/Link_Visible_Note" />
 
     <FrameLayout
-        app:layout_constraintStart_toStartOf="parent"
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/_40sdp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        android:layout_width="match_parent"
-        android:layout_height="@dimen/_40sdp">
+        app:layout_constraintStart_toStartOf="parent">
 
         <ImageView
             android:id="@+id/imgMore"
@@ -133,7 +223,6 @@
             android:src="@drawable/ic_more"
             app:tint="@color/colorWhite" />
     </FrameLayout>
-
 
 
 </androidx.constraintlayout.widget.ConstraintLayout>
